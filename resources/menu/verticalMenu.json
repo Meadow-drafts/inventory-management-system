@@ -34,6 +34,12 @@
       "slug": "stock-view"
     },
     {
+      "url": "/transaction/view",
+      "name": "Customer Transaction",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "transaction-view"
+    },
+    {
       "name": "Layouts",
       "icon": "menu-icon tf-icons bx bx-layout",
       "slug": "layouts",
