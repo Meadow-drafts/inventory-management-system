@@ -7,6 +7,33 @@
       "slug": "dashboard-analytics"
     },
     {
+      "url": "/trial/basic",
+      "name": "Trial",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "trial-basic"
+    },
+    
+    {
+      "url": "/customer/view",
+      "name": "Customer",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "customer-view"
+    },
+    
+    {
+      "url": "/supplier/view",
+      "name": "Supplier",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "supplier-view"
+    },
+    
+    {
+      "url": "/stock/view",
+      "name": "Stock",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "stock-view"
+    },
+    {
       "name": "Layouts",
       "icon": "menu-icon tf-icons bx bx-layout",
       "slug": "layouts",

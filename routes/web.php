@@ -39,6 +39,8 @@ Route::get('/auth/forgot-password-basic', $controller_path . '\authentications\F
 
 // cards
 Route::get('/cards/basic', $controller_path . '\cards\CardBasic@index')->name('cards-basic');
+Route::get('/trial/basic', $controller_path . '\trial\TrialBasic@index')->name('trial-basic');
+Route::get('/customer/view', $controller_path . '\customers\CustomerController@index')->name('customer-view');
 
 // User Interface
 Route::get('/ui/accordion', $controller_path . '\user_interface\Accordion@index')->name('ui-accordion');
@@ -81,4 +83,4 @@ Route::get('/tables/basic', $controller_path . '\tables\Basic@index')->name('tab
 
 
 //test
-Route::resource('/customers', 'CustomerController');
+// Route::get('/customers', 'CustomerController');
