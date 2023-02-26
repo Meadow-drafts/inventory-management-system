@@ -7,10 +7,10 @@
 @endsection
 
 @section('content')
-<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">DataTables /</span>Stock</h4>
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">DataTables /</span>Transactions</h4>
 
 <div class="card">
-  <h5 class="card-header">Stock</h5>
+  <h5 class="card-header">Transactions to Customers</h5>
   <button type="button" class="btn btn-sm btn-primary new w-25 py-2 mb-3"  data-bs-toggle="modal" data-bs-target="#smallModal">
     Add
   </button>
@@ -112,19 +112,19 @@
       <thead>
         <tr>
           <th>Product ID</th>
-          <th>Supplier ID</th>
+          <th>Customer ID</th>
           <th>Quantity</th>
           <th>Amount</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-      @foreach ($Stocks as $stock)
+      @foreach ($Transactions as $transaction)
         <tr>
-          <td>{{$stock->product_id}}</td>
-          <td>{{$stock->supplier_id}}</td>
-          <td>{{$stock->quantity}}</td>
-          <td><span class="badge bg-label-primary me-1">{{$stock->amount}}</span></td>
+          <td>{{$transaction->product_id}}</td>
+          <td>{{$transaction->customer_id}}</td>
+          <td>{{$transaction->quantity}}</td>
+          <td><span class="badge bg-label-primary me-1">{{$transaction->amount}}</span></td>
           <td>
             <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>

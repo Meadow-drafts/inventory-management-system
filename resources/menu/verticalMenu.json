@@ -12,26 +12,6 @@
       "icon": "menu-icon tf-icons bx bx-home-circle",
       "slug": "trial-basic"
     },
-    
-    {
-      "url": "/customer/view",
-      "name": "Customer",
-      "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "customer-view"
-    },
-    
-    {
-      "url": "/supplier/view",
-      "name": "Supplier",
-      "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "supplier-view"
-    },
-    {
-      "url": "/product/view",
-      "name": "Product",
-      "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "product-view"
-    },
     {
       "url": "/stock/view",
       "name": "Stock",
@@ -43,6 +23,46 @@
       "name": "Customer Transaction",
       "icon": "menu-icon tf-icons bx bx-home-circle",
       "slug": "transaction-view"
+    },
+    {
+      "name": "Customer",
+      "icon": "menu-icon tf-icons bx bx-layout",
+      "slug": "customer",
+      "submenu": [
+        
+        {
+          "url": "/customer/view",
+          "name": "Customer",
+          "icon": "menu-icon tf-icons bx bx-home-circle",
+          "slug": "customer-view"
+        },
+        {
+          "url": "/transaction/view",
+          "name": "Customer Transaction",
+          "icon": "menu-icon tf-icons bx bx-home-circle",
+          "slug": "transaction-view"
+        }     
+      ]
+    },
+    {
+      "name": "Supplier",
+      "icon": "menu-icon tf-icons bx bx-layout",
+      "slug": "supplier",
+      "submenu": [
+        
+        {
+          "url": "/supplier/view",
+          "name": "Supplier",
+          "icon": "menu-icon tf-icons bx bx-home-circle",
+          "slug": "supplier-view"
+        },       
+        {
+          "url": "/product/view",
+          "name": "Product",
+          "icon": "menu-icon tf-icons bx bx-home-circle",
+          "slug": "product-view"
+        }    
+      ]
     },
     {
       "name": "Layouts",
