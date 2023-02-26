@@ -111,8 +111,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Product ID</th>
-          <th>Customer ID</th>
+          <th>Product Name</th>
+          <th>Customer Name</th>
           <th>Quantity</th>
           <th>Amount</th>
           <th>Actions</th>
@@ -121,8 +121,8 @@
       <tbody>
       @foreach ($Transactions as $transaction)
         <tr>
-          <td>{{$transaction->product_id}}</td>
-          <td>{{$transaction->customer_id}}</td>
+          <td>{{$transaction->name}}</td>
+          <td>{{$transaction->customer_name}}</td>
           <td>{{$transaction->quantity}}</td>
           <td><span class="badge bg-label-primary me-1">{{$transaction->amount}}</span></td>
           <td>

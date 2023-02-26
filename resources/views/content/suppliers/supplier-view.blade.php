@@ -128,7 +128,7 @@
       <tbody>
       @foreach ($Suppliers as $supplier)
         <tr>
-          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$supplier->name}}</strong></td>
+          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$supplier->supplier_name}}</strong></td>
           <td>{{$supplier->phone}}</td>
           <td>{{$supplier->email}}</td>
           <td>{{$supplier->company_name}}</td>

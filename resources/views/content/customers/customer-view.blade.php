@@ -115,7 +115,7 @@
       <tbody>
       @foreach ($Customers as $customer)
         <tr>
-          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customer->name}}</strong></td>
+          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customer->customer_name}}</strong></td>
           <td>{{$customer->phone}}</td>
           <td>{{$customer->email}}</td>
           <td><span class="badge bg-label-primary me-1">{{$customer->address}}</span></td>

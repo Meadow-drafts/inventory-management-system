@@ -112,8 +112,8 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Product ID</th>
-          <th>Supplier ID</th>
+          <th>Product Name</th>
+          <th>Supplier Name</th>
           <th>Quantity</th>
           <th>Price</th>
           <th>Actions</th>
@@ -123,7 +123,7 @@
       @foreach ($Products as $product)
         <tr>
           <td>{{$product->name}}</td>
-          <td>{{$product->supplier_id}}</td>
+          <td>{{$product->supplier_name}}</td>
           <td>{{$product->quantity}}</td>
           <td><span class="badge bg-label-primary me-1">{{$product->price}}</span></td>
           <td>
