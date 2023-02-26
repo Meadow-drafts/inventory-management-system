@@ -45,6 +45,7 @@ Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('
 Route::get('/customer/view', $controller_path . '\customers\CustomerController@index')->name('customer-view');
 Route::get('/supplier/view', $controller_path . '\suppliers\SupplierController@index')->name('supplier-view');
 Route::get('/stock/view', $controller_path . '\stock\StockController@index')->name('stock-view');
+Route::get('/product/view', $controller_path . '\products\ProductController@index')->name('product-view');
 Route::get('/transaction/view', $controller_path . '\transactions\TransactionController@index')->name('transaction-view');
 
 // User Interface
