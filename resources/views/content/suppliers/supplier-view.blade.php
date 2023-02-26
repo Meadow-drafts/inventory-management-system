@@ -24,7 +24,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-          <form id="myForm"  action="" method="post" name="myForm" class="form-horizontal" novalidate="">
+          <form id="addForm"  action="" method="post" name="addForm" class="form-horizontal" novalidate="">
               <div class="row">
                 <div class="col mb-3">
                   <label for="name" class="form-label">Name</label>
@@ -34,19 +34,25 @@
               <div class="row">
                 <div class="col mb-3">
                   <label for="phone" class="form-label">Phone</label>
-                  <input type="text" id="phone" class="form-control" placeholder="Enter phone Number">
+                  <input type="text" id="phone" class="form-control" placeholder="Enter Phone Number">
                 </div>
               </div>
+              <div class="row">
+                <div class="col mb-3">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                </div>
+              </div>             
               <div class="row g-2">
                 <div class="col mb-0">
-                  <label class="form-label" for="email">Email</label>
-                  <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                  <label class="form-label" for="company_name">Company Name</label>
+                  <input type="text" class="form-control" id="company_name" placeholder="Company Name">
                 </div>
                 <div class="col mb-0">
                   <label class="form-label" for="address">Address</label>
                   <input type="text" class="form-control" id="address" placeholder="Enter Address">
                 </div>
-            </form>  
+            </form>   
             </div>
           </div>
           <div class="modal-footer">
@@ -62,11 +68,11 @@
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel2">Edit Customer</h5>
+            <h5 class="modal-title" id="exampleModalLabel2">Edit Supplier</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="myForm"  action="" method="post" name="myForm" class="form-horizontal" novalidate="">
+            <form id="editForm"  action="" method="post" name="editForm" class="form-horizontal" novalidate="">
               <div class="row">
                 <div class="col mb-3">
                   <label for="name" class="form-label">Name</label>
@@ -76,13 +82,19 @@
               <div class="row">
                 <div class="col mb-3">
                   <label for="phone" class="form-label">Phone</label>
-                  <input type="text" id="phone" class="form-control" placeholder="Enter phone Number">
+                  <input type="text" id="phone" class="form-control" placeholder="Enter Phone Number">
                 </div>
               </div>
+              <div class="row">
+                <div class="col mb-3">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                </div>
+              </div>             
               <div class="row g-2">
                 <div class="col mb-0">
-                  <label class="form-label" for="email">Email</label>
-                  <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                  <label class="form-label" for="company_name">Company Name</label>
+                  <input type="text" class="form-control" id="company_name" placeholder="Company Name">
                 </div>
                 <div class="col mb-0">
                   <label class="form-label" for="address">Address</label>
@@ -100,7 +112,7 @@
       </div>
     </div>
 
-  <!-- DataTable for Customers   -->
+  <!-- DataTable for Suppliers   -->
   <div class="table-responsive text-nowrap">
     <table class="table">
       <thead>
@@ -108,17 +120,19 @@
           <th>Name</th>
           <th>Phone</th>
           <th>Email</th>
+          <th>Company Name</th>
           <th>Address</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-      @foreach ($Customers as $customer)
+      @foreach ($Suppliers as $supplier)
         <tr>
-          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$customer->name}}</strong></td>
-          <td>{{$customer->phone}}</td>
-          <td>{{$customer->email}}</td>
-          <td><span class="badge bg-label-primary me-1">{{$customer->address}}</span></td>
+          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$supplier->name}}</strong></td>
+          <td>{{$supplier->phone}}</td>
+          <td>{{$supplier->email}}</td>
+          <td>{{$supplier->company_name}}</td>
+          <td><span class="badge bg-label-primary me-1">{{$supplier->address}}</span></td>
           <td>
             <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>

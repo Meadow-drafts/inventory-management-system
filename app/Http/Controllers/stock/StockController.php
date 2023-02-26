@@ -9,6 +9,7 @@ class StockController extends Controller
 {
   public function index()
   {
-    return view('content.stock.stock-view');
+    $stocks = \App\Models\Stock :: all();
+    return view('content.stock.stock-view',['Stocks' => $stocks]);
   }
 }

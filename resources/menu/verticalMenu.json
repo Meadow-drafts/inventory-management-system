@@ -26,7 +26,12 @@
       "icon": "menu-icon tf-icons bx bx-home-circle",
       "slug": "supplier-view"
     },
-    
+    {
+      "url": "/product/view",
+      "name": "Product",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "product-view"
+    },
     {
       "url": "/stock/view",
       "name": "Stock",
@@ -48,6 +53,18 @@
           "url": "/layouts/without-menu",
           "name": "Without menu",
           "slug": "layouts-without-menu"
+        },
+        {
+          "url": "/customer/view",
+          "name": "Customer",
+          "icon": "menu-icon tf-icons bx bx-home-circle",
+          "slug": "customer-view"
+        },
+        {
+          "url": "/supplier/view",
+          "name": "Supplier",
+          "icon": "menu-icon tf-icons bx bx-home-circle",
+          "slug": "supplier-view"
         },
         {
           "url": "/layouts/without-navbar",
