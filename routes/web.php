@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\trial\TrialBasic;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::resource('trials', TrialBasic :: class);
 
 $controller_path = 'App\Http\Controllers';
 
@@ -39,8 +42,8 @@ Route::get('/auth/forgot-password-basic', $controller_path . '\authentications\F
 
 // cards
 Route::get('/cards/basic', $controller_path . '\cards\CardBasic@index')->name('cards-basic');
-Route::get('/trial/basic', $controller_path . '\trial\TrialBasic@index')->name('trial-basic');
-Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('store');
+// Route::get('/trial/basic', $controller_path . '\trial\TrialBasic@index')->name('trial-basic');
+// Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('store');
 
 Route::get('/customer/view', $controller_path . '\customers\CustomerController@index')->name('customer-view');
 Route::get('/supplier/view', $controller_path . '\suppliers\SupplierController@index')->name('supplier-view');

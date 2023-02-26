@@ -7,10 +7,10 @@
       "slug": "dashboard-analytics"
     },
     {
-      "url": "/trial/basic",
+      "url": "trials",
       "name": "Trial",
       "icon": "menu-icon tf-icons bx bx-home-circle",
-      "slug": "trial-basic"
+      "slug": "trials"
     },
     {
       "url": "/stock/view",

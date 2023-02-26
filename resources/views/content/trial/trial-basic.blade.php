@@ -5,6 +5,9 @@
 @section('vendor-script')
 <script src="{{asset('assets/vendor/libs/masonry/masonry.js')}}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+
 @endsection
 
 @section('content')
@@ -20,21 +23,21 @@
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                <h5 class="modal-title" id="modalHeading"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="myForm"  action="" method="post" name="myForm" class="form-horizontal" novalidate="">
+                <form id="trialForm" name="trialForm" class="form-horizontal" novalidate="">
                   <div class="row">
                     <div class="col mb-3">
-                      <label for="nameSmall" class="form-label">Name</label>
-                      <input type="text" id="nameSmall" class="form-control" placeholder="Enter Name">
+                      <label for="name" class="form-label">Name</label>
+                      <input type="text" id="name" name="name" class="form-control" value="" required="" placeholder="Enter Name">
                     </div>
                   </div>
                   <div class="row g-2">
                     <div class="col mb-0">
-                      <label class="form-label" for="priceSmall">Price</label>
-                      <input type="number" class="form-control" id="priceSmall" placeholder="+237 xxxxxxxxx">
+                      <label class="form-label" for="price">Price</label>
+                      <input type="number" class="form-control" id="price" name="price" value="" required="" placeholder="">
                     </div>
                 </form>  
                 </div>
@@ -92,20 +95,15 @@
 
 @section('script')
   <script type="text/javascript">
-    jQuery(document).ready(function($){
+    $(function(){
+      $.ajaxSetup({
+        headers:{
+          X-CSRF-TOKEN: $('meta[name="csrf-token"]').attr('content')
 
-      
-      $(document).on('click', '.new', function (e) {
-                e.preventDefault();
-                var url = $(this).data('url');
-                $('#smallModal form').attr('action', url);
-                $('#smallModal form').find("button:reset").trigger('click');
-                $('#smallModal form').find("button:submit").text("create");
-                clearFormModal('#smallModal');
-                $('#smallModal').modal();
-            })
-    
-});
+        }
+      });
+
+    })
 
   </script>
 
