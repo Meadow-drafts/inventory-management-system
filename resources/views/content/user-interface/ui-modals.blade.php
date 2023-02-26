@@ -323,6 +323,7 @@
             </div>
           </div>
         </div>
+        
         <!-- Large Modal -->
         <div class="modal fade" id="largeModal" tabindex="-1" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">

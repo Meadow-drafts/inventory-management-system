@@ -9,6 +9,7 @@ class SupplierController extends Controller
 {
   public function index()
   {
-    return view('content.suppliers.supplier-view');
+    $suppliers = \App\Models\Supplier :: all();
+    return view('content.suppliers.supplier-view',['Suppliers' => $suppliers]);
   }
 }

@@ -9,6 +9,7 @@ class CustomerController extends Controller
 {
   public function index()
   {
-    return view('content.customers.customer-view');
+    $customers = \App\Models\Customer :: all();
+    return view('content.customers.customer-view',['Customers' => $customers]);
   }
 }

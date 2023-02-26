@@ -40,6 +40,8 @@ Route::get('/auth/forgot-password-basic', $controller_path . '\authentications\F
 // cards
 Route::get('/cards/basic', $controller_path . '\cards\CardBasic@index')->name('cards-basic');
 Route::get('/trial/basic', $controller_path . '\trial\TrialBasic@index')->name('trial-basic');
+Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('store');
+
 Route::get('/customer/view', $controller_path . '\customers\CustomerController@index')->name('customer-view');
 Route::get('/supplier/view', $controller_path . '\suppliers\SupplierController@index')->name('supplier-view');
 Route::get('/stock/view', $controller_path . '\stock\StockController@index')->name('stock-view');
