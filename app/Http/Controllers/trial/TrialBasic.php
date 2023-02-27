@@ -17,32 +17,11 @@ class TrialBasic extends Controller
 
   }
 
-   /**
-     * Store a newly created resource in storage.
-     *
-     */
-    public function store(Request $request)
-    {
-      Trial ::create([
-        'name' => $request->get('name'),
-        'price' => $request->get('price'),
-       
-      ]);
-      return response()->json(['success'=>'Record saved successfully.']);
-    }
-
-        //  * Show the form for editing the specified resource.
-    public function edit($id)
-    {
-        $trial = Trial::find($id);
-        return response()->json($trial);
-    }
-
-
-    public function destroy($id)
-    {
-      Trial::find($id)->delete();
-      
-        return response()->json(['success'=>'Record deleted successfully.']);
-    }
+  public function store(Request $request){
+      Trial :: create([
+      'name' => $request-> get('name'),
+      'price' => $request -> get('price')
+    ]);
+    return redirect('/trial/basic');
+  }
 }

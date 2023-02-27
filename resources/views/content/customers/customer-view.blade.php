@@ -24,35 +24,33 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-          <form id="addForm"  action="" method="post" name="addForm" class="form-horizontal" novalidate="">
+          <form  action="{{route('customer-store')}}" method="POST" class="form-horizontal" novalidate="">
+            @csrf  
               <div class="row">
                 <div class="col mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input type="text" id="name" class="form-control" placeholder="Enter Name">
+                  <label for="customer_name" class="form-label">Name</label>
+                  <input type="text" id="customer_name" name="customer_name" class="form-control" placeholder="Enter Name">
                 </div>
               </div>
               <div class="row">
                 <div class="col mb-3">
                   <label for="phone" class="form-label">Phone</label>
-                  <input type="text" id="phone" class="form-control" placeholder="Enter phone Number">
+                  <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter phone Number">
                 </div>
               </div>
               <div class="row g-2">
                 <div class="col mb-0">
                   <label class="form-label" for="email">Email</label>
-                  <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
                 </div>
                 <div class="col mb-0">
                   <label class="form-label" for="address">Address</label>
-                  <input type="text" class="form-control" id="address" placeholder="Enter Address">
+                  <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address">
                 </div>
-            </form>  
+                <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
+                <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+              </form>  
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-            <input type="hidden" id="trial_id" name="trial_id" value="0">
-            <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -65,37 +63,39 @@
             <h5 class="modal-title" id="exampleModalLabel2">Edit Customer</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+
           <div class="modal-body">
-            <form id="editForm"  action="" method="post" name="editForm" class="form-horizontal" novalidate="">
-              <div class="row">
+            <form action="{{route('customer-update', $customer->id) }}" method="POST" class="form-horizontal" novalidate="">
+            @csrf
+              @method('PATCH')  
+            <div class="row">
                 <div class="col mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input type="text" id="name" class="form-control" placeholder="Enter Name">
+                  <label for="customer_name" class="form-label">Name</label>
+                  <input type="text" id="customer_name" name="customer_name" value="{{$customer->customer_name}}" class="form-control" placeholder="Enter Name">
                 </div>
               </div>
               <div class="row">
                 <div class="col mb-3">
                   <label for="phone" class="form-label">Phone</label>
-                  <input type="text" id="phone" class="form-control" placeholder="Enter phone Number">
+                  <input type="text" id="phone" name="phone" value="{{$customer->phone}}" class="form-control" placeholder="Enter phone Number">
                 </div>
               </div>
               <div class="row g-2">
                 <div class="col mb-0">
                   <label class="form-label" for="email">Email</label>
-                  <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                  <input type="text" name="email" value="{{$customer->email}}" class="form-control" id="email" placeholder="Enter Email">
                 </div>
                 <div class="col mb-0">
                   <label class="form-label" for="address">Address</label>
-                  <input type="text" class="form-control" id="address" placeholder="Enter Address">
+                  <input type="text" name="address" value="{{$customer->address}}" class="form-control" id="address" placeholder="Enter Address">
                 </div>
+                <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
+                <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        
             </form>  
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-            <input type="hidden" id="trial_id" name="trial_id" value="0">
-            <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
-          </div>
+     
         </div>
       </div>
     </div>
@@ -123,7 +123,7 @@
             <div class="dropdown">
               <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#editModal"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                <a class="dropdown-item" href="{{route('customer-update', $customer->id) }}" data-bs-toggle="modal" data-bs-target="#editModal"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                 <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
               </div>
             </div>

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\trial\TrialBasic;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::resource('trials', TrialBasic :: class);
 
 $controller_path = 'App\Http\Controllers';
 
@@ -42,10 +39,16 @@ Route::get('/auth/forgot-password-basic', $controller_path . '\authentications\F
 
 // cards
 Route::get('/cards/basic', $controller_path . '\cards\CardBasic@index')->name('cards-basic');
-Route::get('/trial.index', $controller_path . '\trial\TrialBasic@index')->name('trial.index');
-// Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('store');
+Route::get('/trial/basic', $controller_path . '\trial\TrialBasic@index')->name('trial-basic');
+Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('trial-store');
 
+//Customer
 Route::get('/customer/view', $controller_path . '\customers\CustomerController@index')->name('customer-view');
+Route::post('customer/store', $controller_path . '\customers\CustomerController@store')->name('customer-store');
+Route::put('customer/update/{customer}', $controller_path . '\customers\CustomerController@update')->name('customer-update');
+
+
+
 Route::get('/supplier/view', $controller_path . '\suppliers\SupplierController@index')->name('supplier-view');
 Route::get('/stock/view', $controller_path . '\stock\StockController@index')->name('stock-view');
 Route::get('/product/view', $controller_path . '\products\ProductController@index')->name('product-view');

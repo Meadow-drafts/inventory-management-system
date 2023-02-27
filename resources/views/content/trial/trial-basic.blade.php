@@ -5,9 +5,6 @@
 @section('vendor-script')
 <script src="{{asset('assets/vendor/libs/masonry/masonry.js')}}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-
 @endsection
 
 @section('content')
@@ -15,7 +12,7 @@
 
 <div class="card">
   <h5 class="card-header">Table Header & Footer</h5>
-  <button type="button" class="btn btn-primary "  id="createNewTrial">
+  <button type="button" class="btn btn-primary w-25"  data-bs-toggle="modal" data-bs-target="#smallModal">
     Add
   </button>
    <!-- Small Modal -->
@@ -23,35 +20,34 @@
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalHeading"></h5>
+                <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <form id="trialForm" name="trialForm" class="form-horizontal" novalidate="">
-                  <div class="row">
+                <form  action="{{route('trial-store')}}" method="POST" class="form-horizontal " >
+                @csrf  
+                <div class="row">
                     <div class="col mb-3">
                       <label for="name" class="form-label">Name</label>
-                      <input type="text" id="name" name="name" class="form-control" value="" required="" placeholder="Enter Name">
+                      <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" >
                     </div>
                   </div>
                   <div class="row g-2">
                     <div class="col mb-0">
                       <label class="form-label" for="price">Price</label>
-                      <input type="number" class="form-control" id="price" name="price" value="" required="" placeholder="">
+                      <input type="number" class="form-control" name="price" id="price" placeholder="">
                     </div>
+                    <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
+                    <button type="reset" class="btn btn-outline-secondary mt-5" data-bs-dismiss="modal">Close</button>
                 </form>  
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                <input type="hidden" id="trial_id" name="trial_id" value="0">
-                <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
-              </div>
+              
             </div>
           </div>
         </div>
   <div class="table-responsive text-nowrap">
-    <table class="table data-table">
+    <table class="table">
       <thead>
         <tr>
           <th>Name</th>
@@ -59,7 +55,7 @@
           <th>Actions</th>
 
       </thead>
-      <tbody>
+      <tbody id="trial-list" name="trial-list">
         @foreach ($allTrials as $trial)
         
         <tr>
@@ -92,66 +88,24 @@
 </div>
 @endsection
 
-<!-- 
+
 @section('script')
   <script type="text/javascript">
-    $(document).ready(function(){
-      $.ajaxSetup({
-        headers:{
-          X-CSRF-TOKEN: $('meta[name="csrf-token"]').attr('content')
-
-        }
-      });
+    jQuery(document).ready(function($){
 
       
-   
+      $(document).on('click', '.new', function (e) {
+                e.preventDefault();
+                var url = $(this).data('url');
+                $('#smallModal form').attr('action', url);
+                $('#smallModal form').find("button:reset").trigger('click');
+                $('#smallModal form').find("button:submit").text("create");
+                clearFormModal('#smallModal');
+                $('#smallModal').modal();
+            })
     
-    $('#createNewTrial').click(function () {
-        $('#btn-save').val("create-trial");
-        $('#trial_id').val('');
-        $('#trialForm').trigger("reset");
-        $('#modalHeading').html("Create New Trial");
-        $('#smallModal').modal('show');
-    });
-
-    $('body').on('click', '.editTrial', function () {
-        var trial_id = $(this).data('id');
-        $.get("{{ route('trials.edit') }}" +'/' + trial_id +'/edit', function (data) {
-            $('#modalHeading').html("Edit Trial");
-            $('#btn-save').val("edit-user");
-            $('#smallModal').modal('show');
-            $('#trial_id').val(data.id);
-            $('#name').val(data.name);
-            $('#price').val(data.price);
-        })
-    });
-
-
-    $('#btn-save').click(function (e) {
-        e.preventDefault();
-        $(this).html('Sending..');
-      
-        $.ajax({
-            data: $('#trialForm').serialize(),
-            url: "{{ route('trials.store') }}",
-            type: "POST",
-            dataType: 'json',
-            success: function (data) {
-        
-                $('#trialForm').trigger("reset");
-                $('#smallModal').modal('hide');
-                table.draw();
-            
-            },
-            error: function (data) {
-                console.log('Error:', data);
-                $('#btn-save').html('Save Changes');
-            }
-        });
-    });
-
-    })
+});
 
   </script>
 
-@endsection -->
+@endsection
