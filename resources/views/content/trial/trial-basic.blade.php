@@ -15,7 +15,7 @@
 
 <div class="card">
   <h5 class="card-header">Table Header & Footer</h5>
-  <button type="button" class="btn btn-primary new"  data-bs-toggle="modal" data-bs-target="#smallModal">
+  <button type="button" class="btn btn-primary "  id="createNewTrial">
     Add
   </button>
    <!-- Small Modal -->
@@ -51,7 +51,7 @@
           </div>
         </div>
   <div class="table-responsive text-nowrap">
-    <table class="table">
+    <table class="table data-table">
       <thead>
         <tr>
           <th>Name</th>
@@ -59,7 +59,7 @@
           <th>Actions</th>
 
       </thead>
-      <tbody id="trial-list" name="trial-list">
+      <tbody>
         @foreach ($allTrials as $trial)
         
         <tr>
@@ -92,10 +92,10 @@
 </div>
 @endsection
 
-
+<!-- 
 @section('script')
   <script type="text/javascript">
-    $(function(){
+    $(document).ready(function(){
       $.ajaxSetup({
         headers:{
           X-CSRF-TOKEN: $('meta[name="csrf-token"]').attr('content')
@@ -103,8 +103,55 @@
         }
       });
 
+      
+   
+    
+    $('#createNewTrial').click(function () {
+        $('#btn-save').val("create-trial");
+        $('#trial_id').val('');
+        $('#trialForm').trigger("reset");
+        $('#modalHeading').html("Create New Trial");
+        $('#smallModal').modal('show');
+    });
+
+    $('body').on('click', '.editTrial', function () {
+        var trial_id = $(this).data('id');
+        $.get("{{ route('trials.edit') }}" +'/' + trial_id +'/edit', function (data) {
+            $('#modalHeading').html("Edit Trial");
+            $('#btn-save').val("edit-user");
+            $('#smallModal').modal('show');
+            $('#trial_id').val(data.id);
+            $('#name').val(data.name);
+            $('#price').val(data.price);
+        })
+    });
+
+
+    $('#btn-save').click(function (e) {
+        e.preventDefault();
+        $(this).html('Sending..');
+      
+        $.ajax({
+            data: $('#trialForm').serialize(),
+            url: "{{ route('trials.store') }}",
+            type: "POST",
+            dataType: 'json',
+            success: function (data) {
+        
+                $('#trialForm').trigger("reset");
+                $('#smallModal').modal('hide');
+                table.draw();
+            
+            },
+            error: function (data) {
+                console.log('Error:', data);
+                $('#btn-save').html('Save Changes');
+            }
+        });
+    });
+
     })
 
   </script>
 
-@endsection
+@endsection -->
