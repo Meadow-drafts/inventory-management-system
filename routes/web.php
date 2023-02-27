@@ -37,19 +37,26 @@ Route::get('/auth/login-basic', $controller_path . '\authentications\LoginBasic@
 Route::get('/auth/register-basic', $controller_path . '\authentications\RegisterBasic@index')->name('auth-register-basic');
 Route::get('/auth/forgot-password-basic', $controller_path . '\authentications\ForgotPasswordBasic@index')->name('auth-reset-password-basic');
 
+
+
 // cards
 Route::get('/cards/basic', $controller_path . '\cards\CardBasic@index')->name('cards-basic');
 Route::get('/trial/basic', $controller_path . '\trial\TrialBasic@index')->name('trial-basic');
 Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('trial-store');
 
+
+
 //Customer
 Route::get('/customer/view', $controller_path . '\customers\CustomerController@index')->name('customer-view');
 Route::post('customer/store', $controller_path . '\customers\CustomerController@store')->name('customer-store');
-Route::put('customer/update/{customer}', $controller_path . '\customers\CustomerController@update')->name('customer-update');
+Route::put('customer/update/{id}', $controller_path . '\customers\CustomerController@update')->name('customer-update');
 
 
-
+//Suppliers
 Route::get('/supplier/view', $controller_path . '\suppliers\SupplierController@index')->name('supplier-view');
+Route::post('supplier/store', $controller_path . '\suppliers\SupplierController@store')->name('supplier-store');
+
+
 Route::get('/stock/view', $controller_path . '\stock\StockController@index')->name('stock-view');
 Route::get('/product/view', $controller_path . '\products\ProductController@index')->name('product-view');
 Route::get('/transaction/view', $controller_path . '\transactions\TransactionController@index')->name('transaction-view');

@@ -14,7 +14,7 @@
   <button type="button" class="btn btn-sm btn-primary new w-25 py-2 mb-3"  data-bs-toggle="modal" data-bs-target="#smallModal">
     Add
   </button>
-  
+
   <!-- Create/Add Modal -->
   <div class="modal fade" id="smallModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-sm" role="document">
@@ -25,7 +25,7 @@
           </div>
           <div class="modal-body">
           <form  action="{{route('customer-store')}}" method="POST" class="form-horizontal" novalidate="">
-            @csrf  
+            @csrf
               <div class="row">
                 <div class="col mb-3">
                   <label for="customer_name" class="form-label">Name</label>
@@ -49,56 +49,55 @@
                 </div>
                 <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
                 <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-              </form>  
+          </form>
             </div>
           </div>
         </div>
       </div>
     </div>
   <!-- Edit Modal -->
-  <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel2">Edit Customer</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
+{{--  <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">--}}
+{{--      <div class="modal-dialog modal-sm" role="document">--}}
+{{--        <div class="modal-content">--}}
+{{--          <div class="modal-header">--}}
+{{--            <h5 class="modal-title" id="exampleModalLabel2">Edit Customer</h5>--}}
+{{--            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+{{--          </div>--}}
+{{--          <div class="modal-body">--}}
+{{--            <form action="{{ route('customer-update/',$customer->id) }}" method="POST" class="form-horizontal" novalidate="">--}}
+{{--              @csrf--}}
+{{--                @method('PATCH')--}}
+{{--                <div class="row">--}}
+{{--                  <div class="col mb-3">--}}
+{{--                    <label for="customer_name" class="form-label">Name</label>--}}
+{{--                    <input type="text" id="customer_name" name="customer_name" value="{{$customer->customer_name}}" class="form-control" placeholder="Enter Name">--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--                <div class="row">--}}
+{{--                  <div class="col mb-3">--}}
+{{--                    <label for="phone" class="form-label">Phone</label>--}}
+{{--                    <input type="text" id="phone" name="phone" value="{{$customer->phone}}" class="form-control" placeholder="Enter phone Number">--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--                <div class="row g-2">--}}
+{{--                  <div class="col mb-0">--}}
+{{--                    <label class="form-label" for="email">Email</label>--}}
+{{--                    <input type="text" name="email" value="{{$customer->email}}" class="form-control" id="email" placeholder="Enter Email">--}}
+{{--                  </div>--}}
+{{--                  <div class="col mb-0">--}}
+{{--                    <label class="form-label" for="address">Address</label>--}}
+{{--                    <input type="text" name="address" value="{{$customer->address}}" class="form-control" id="address" placeholder="Enter Address">--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--                  <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>--}}
+{{--                  <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>--}}
+{{--            </form>--}}
+{{--            </div>--}}
+{{--          </div>--}}
 
-          <div class="modal-body">
-            <form action="{{route('customer-update', $customer->id) }}" method="POST" class="form-horizontal" novalidate="">
-            @csrf
-              @method('PATCH')  
-            <div class="row">
-                <div class="col mb-3">
-                  <label for="customer_name" class="form-label">Name</label>
-                  <input type="text" id="customer_name" name="customer_name" value="{{$customer->customer_name}}" class="form-control" placeholder="Enter Name">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="phone" class="form-label">Phone</label>
-                  <input type="text" id="phone" name="phone" value="{{$customer->phone}}" class="form-control" placeholder="Enter phone Number">
-                </div>
-              </div>
-              <div class="row g-2">
-                <div class="col mb-0">
-                  <label class="form-label" for="email">Email</label>
-                  <input type="text" name="email" value="{{$customer->email}}" class="form-control" id="email" placeholder="Enter Email">
-                </div>
-                <div class="col mb-0">
-                  <label class="form-label" for="address">Address</label>
-                  <input type="text" name="address" value="{{$customer->address}}" class="form-control" id="address" placeholder="Enter Address">
-                </div>
-                <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
-                <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-        
-            </form>  
-            </div>
-          </div>
-     
-        </div>
-      </div>
-    </div>
+{{--        </div>--}}
+{{--      </div>--}}
+{{--    </div>--}}
 
   <!-- DataTable for Customers   -->
   <div class="table-responsive text-nowrap">
@@ -134,7 +133,7 @@
       </tbody>
       <tfoot class="table-border-bottom-0">
         <tr>
-          <th colspan="5">Project</th>          
+          <th colspan="5">Project</th>
         </tr>
       </tfoot>
     </table>

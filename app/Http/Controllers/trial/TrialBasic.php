@@ -21,6 +21,8 @@ class TrialBasic extends Controller
       Trial :: create([
       'name' => $request-> get('name'),
       'price' => $request -> get('price')
+      'price' => $request -> get('price')
+
     ]);
     return redirect('/trial/basic');
   }

@@ -14,7 +14,7 @@
   <button type="button" class="btn btn-sm btn-primary new w-25 py-2 mb-3"  data-bs-toggle="modal" data-bs-target="#smallModal">
     Add
   </button>
-  
+
   <!-- Create/Add Modal -->
   <div class="modal fade" id="smallModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-sm" role="document">
@@ -24,41 +24,39 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-          <form id="addForm"  action="" method="post" name="addForm" class="form-horizontal" novalidate="">
-              <div class="row">
+          <form id="addForm"  action="{{route('supplier-store')}}" method="POST"  name="addForm" class="form-horizontal" novalidate="">
+            @csrf
+            <div class="row">
                 <div class="col mb-3">
-                  <label for="name" class="form-label">Name</label>
-                  <input type="text" id="name" class="form-control" placeholder="Enter Name">
+                  <label for="supplier_name" class="form-label">Name</label>
+                  <input type="text" id="name" name="supplier_name" class="form-control" placeholder="Enter Name">
                 </div>
               </div>
               <div class="row">
                 <div class="col mb-3">
                   <label for="phone" class="form-label">Phone</label>
-                  <input type="text" id="phone" class="form-control" placeholder="Enter Phone Number">
+                  <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter Phone Number">
                 </div>
               </div>
               <div class="row">
                 <div class="col mb-3">
                     <label class="form-label" for="email">Email</label>
-                    <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
                 </div>
-              </div>             
+              </div>
               <div class="row g-2">
                 <div class="col mb-0">
                   <label class="form-label" for="company_name">Company Name</label>
-                  <input type="text" class="form-control" id="company_name" placeholder="Company Name">
+                  <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Company Name">
                 </div>
                 <div class="col mb-0">
                   <label class="form-label" for="address">Address</label>
-                  <input type="text" class="form-control" id="address" placeholder="Enter Address">
+                  <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address">
                 </div>
-            </form>   
+                <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
+                <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+            </form>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-            <input type="hidden" id="trial_id" name="trial_id" value="0">
-            <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -90,7 +88,7 @@
                     <label class="form-label" for="email">Email</label>
                     <input type="text" class="form-control" id="email" placeholder="Enter Email">
                 </div>
-              </div>             
+              </div>
               <div class="row g-2">
                 <div class="col mb-0">
                   <label class="form-label" for="company_name">Company Name</label>
@@ -100,7 +98,7 @@
                   <label class="form-label" for="address">Address</label>
                   <input type="text" class="form-control" id="address" placeholder="Enter Address">
                 </div>
-            </form>  
+            </form>
             </div>
           </div>
           <div class="modal-footer">
@@ -148,7 +146,7 @@
       </tbody>
       <tfoot class="table-border-bottom-0">
         <tr>
-          <th colspan="5">Project</th>          
+          <th colspan="5">Project</th>
         </tr>
       </tfoot>
     </table>
