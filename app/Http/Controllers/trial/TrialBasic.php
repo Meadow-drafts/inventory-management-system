@@ -20,7 +20,7 @@ class TrialBasic extends Controller
   public function store(Request $request){
       Trial :: create([
       'name' => $request-> get('name'),
-      'price' => $request -> get('price')
+      'price' => $request -> get('price'),
       'price' => $request -> get('price')
 
     ]);
