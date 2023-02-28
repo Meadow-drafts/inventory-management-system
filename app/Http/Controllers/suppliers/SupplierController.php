@@ -43,4 +43,9 @@ class SupplierController extends Controller
 
   }
 
+  public function delete($id)
+  {
+    DB::select('call sp_supplier_delete(?)', array($id));
+  }
+
 }
