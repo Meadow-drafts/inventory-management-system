@@ -5,6 +5,7 @@
 @section('vendor-script')
 <script src="{{asset('assets/vendor/libs/masonry/masonry.js')}}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 @endsection
 
 @section('content')
@@ -25,7 +26,7 @@
               </div>
               <div class="modal-body">
                 <form  action="{{route('trial-store')}}" method="POST" class="form-horizontal " >
-                @csrf  
+                @csrf
                 <div class="row">
                     <div class="col mb-3">
                       <label for="name" class="form-label">Name</label>
@@ -39,10 +40,10 @@
                     </div>
                     <button type="submit"  id="btn-save" class="btn btn-primary">Save changes</button>
                     <button type="reset" class="btn btn-outline-secondary mt-5" data-bs-dismiss="modal">Close</button>
-                </form>  
+                </form>
                 </div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -57,7 +58,7 @@
       </thead>
       <tbody id="trial-list" name="trial-list">
         @foreach ($allTrials as $trial)
-        
+
         <tr>
           <td><i class="fab fa-angular fa-lg text-danger me-3">
 
@@ -72,7 +73,7 @@
               </div>
             </div>
           </td>
-         
+
         </tr>
     @endforeach
       </tbody>
@@ -80,7 +81,7 @@
         <tr>
           <th>Project</th>
           <th>Client</th>
-          
+
         </tr>
       </tfoot>
     </table>
@@ -93,7 +94,7 @@
   <script type="text/javascript">
     jQuery(document).ready(function($){
 
-      
+
       $(document).on('click', '.new', function (e) {
                 e.preventDefault();
                 var url = $(this).data('url');
@@ -103,7 +104,7 @@
                 clearFormModal('#smallModal');
                 $('#smallModal').modal();
             })
-    
+
 });
 
   </script>

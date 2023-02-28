@@ -55,6 +55,8 @@ Route::put('customer/update/{id}', $controller_path . '\customers\CustomerContro
 //Suppliers
 Route::get('/supplier/view', $controller_path . '\suppliers\SupplierController@index')->name('supplier-view');
 Route::post('supplier/store', $controller_path . '\suppliers\SupplierController@store')->name('supplier-store');
+Route::put('supplier/update', $controller_path . '\suppliers\SupplierController@update')->name('supplier-update');
+Route::delete('supplier/delete/{id}', $controller_path . '\suppliers\SupplierController@delete')->name('supplier-delete');
 
 
 Route::get('/stock/view', $controller_path . '\stock\StockController@index')->name('stock-view');
