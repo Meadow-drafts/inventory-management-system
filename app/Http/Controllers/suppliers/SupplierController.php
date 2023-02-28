@@ -31,5 +31,16 @@ class SupplierController extends Controller
     return redirect('/supplier/view')->with('success','Supplier has been created successfully.');
   }
 
+  public function  update(Request $request, $id)
+  {
+    $supplier_name = $request-> get('supplier_name');
+    $phone = $request -> get('phone');
+    $email = $request -> get('email');
+    $company_name = $request -> get('company_name');
+    $address = $request -> get('address');
+
+    $result = DB::select('call sp_supplier_update(?,?,?,?,?,?)',array($id,$supplier_name, $phone,$email, $company_name, $address));
+
+  }
 
 }
