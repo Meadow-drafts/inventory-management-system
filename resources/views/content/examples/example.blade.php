@@ -4,7 +4,7 @@
 
 @section('vendor-script')
   <script src="{{asset('assets/vendor/libs/masonry/masonry.js')}}"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 @endsection
 
@@ -104,29 +104,39 @@
 @endsection
 
 
-{{--@section('script')--}}
-{{--  <script type="text/javascript">--}}
-{{--    $(function () {--}}
-{{--      $.ajaxSetup({--}}
-{{--        headers: {--}}
-{{--          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-{{--        }--}}
-{{--      });--}}
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function () {
+      loadContent();
+      function loadContent(){
+        $.ajax({
+          type:"POST",
+          headers:{"X-CSRF-TOKEN" : $('meta[name="csrf-token"]').attr("content")},
+          url: '{{route('example.alls') }}',
+          datatype: "json",
+          beforeSend: function (){
+            $("#load").show();
+            $("#card-content").hide();
+            $("#summary-table tbody").empty();
+          },
+          success: function (json){
+            $("#summary-table tbody").append(json.data)
+            $("#load").hide();
+            $("#card-content").show()
 
-{{--      $('body').on('click', '.editExample', function (){--}}
-{{--        const example_id = $(this).data('id');--}}
-{{--        $.get("{{route('example.index')}} + '/' + example_id + '/edit', function(data)"){--}}
-{{--        $('#saveBtn').val("edit-example");--}}
-{{--        $('#editModal').modal('show');--}}
-{{--        $('#example_id').val(data.id);--}}
-{{--        $('#name').val(data.name);--}}
-{{--        $('#age').val(data.age);--}}
+          },
+          complete: function () {
 
-{{--        }--}}
-{{--      })--}}
+          },
+          error: function () {
+            console.log("hello")
 
-{{--    });--}}
+          }
+        });
+      }
 
-{{--  </script>--}}
+    });
 
-{{--@endsection--}}
+  </script>
+
+@endsection

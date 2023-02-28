@@ -1,1 +1,1 @@
-<img src="{{asset('public/img/loader-dark.gif')}}" width="50px" alt="">
+<img src="{{asset('public/assets/img/loader-dark.gif')}}" width="50px" alt="">

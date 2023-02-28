@@ -20,7 +20,8 @@ public function alls()
   {
 
     $examples = Example :: all();
-    return view('content.examples.rows',['Examples' => $examples]);
+    $contenus =  view('content.examples.rows',['Examples' => $examples]);
+    return response()->json(['message'=> 'ok', 'data'=>$contenus]);
 
   }
 
