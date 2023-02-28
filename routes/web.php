@@ -44,6 +44,9 @@ Route::get('/cards/basic', $controller_path . '\cards\CardBasic@index')->name('c
 Route::get('/trial/basic', $controller_path . '\trial\TrialBasic@index')->name('trial-basic');
 Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('trial-store');
 
+//example
+Route::get('/example/view', $controller_path . '\examples\ExampleController@index')->name('example-view');
+
 
 
 //Customer
