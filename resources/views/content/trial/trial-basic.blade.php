@@ -62,7 +62,7 @@
         <tr>
           <td><i class="fab fa-angular fa-lg text-danger me-3">
 
-          </i> <strong>{{$trial->name}}</strong></td>
+          </i> <strong>{{$trial['name']}}</strong></td>
           <td>{{$trial->price}}</td>
           <td>
             <div class="dropdown">

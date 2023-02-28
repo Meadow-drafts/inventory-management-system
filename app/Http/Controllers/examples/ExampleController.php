@@ -12,8 +12,15 @@ class ExampleController extends Controller
   public function index()
   {
 
+//    $examples = Example :: all();
+    return view('content.examples.example');
+
+  }
+public function alls()
+  {
+
     $examples = Example :: all();
-    return view('content.examples.example',['Examples' => $examples]);
+    return view('content.examples.rows',['Examples' => $examples]);
 
   }
 

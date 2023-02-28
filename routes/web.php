@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('example', \App\Http\Controllers\examples\ExampleController::class);
+//Route::resource('example', \App\Http\Controllers\examples\ExampleController::class);
 
 $controller_path = 'App\Http\Controllers';
 
@@ -47,7 +47,10 @@ Route::get('/trial/basic', $controller_path . '\trial\TrialBasic@index')->name('
 Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('trial-store');
 
 //example
-//Route::get('/example/view', $controller_path . '\examples\ExampleController@index')->name('example-view');
+Route::get('/example', $controller_path . '\examples\ExampleController@index')->name('example.index');
+Route::post('/example', $controller_path . '\examples\ExampleController@store')->name('example.store');
+Route::post('/example/{example}', $controller_path . '\examples\ExampleController@update')->name('example.update');
+Route::post('/example/alls', $controller_path . '\examples\ExampleController@alls')->name('example.alls');
 
 
 
