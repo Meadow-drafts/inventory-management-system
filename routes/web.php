@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('example', \App\Http\Controllers\examples\ExampleController::class);
+
 $controller_path = 'App\Http\Controllers';
 
 // Main Page Route
@@ -45,7 +47,7 @@ Route::get('/trial/basic', $controller_path . '\trial\TrialBasic@index')->name('
 Route::post('trial/store', $controller_path . '\trial\TrialBasic@store')->name('trial-store');
 
 //example
-Route::get('/example/view', $controller_path . '\examples\ExampleController@index')->name('example-view');
+//Route::get('/example/view', $controller_path . '\examples\ExampleController@index')->name('example-view');
 
 
 

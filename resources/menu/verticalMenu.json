@@ -7,12 +7,18 @@
       "slug": "dashboard-analytics"
     },
     {
+      "url": "/example",
+      "name": "Example",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "example.index"
+    },
+    {
       "url": "/trial/basic",
       "name": "Trial",
       "icon": "menu-icon tf-icons bx bx-home-circle",
       "slug": "trial-basic"
     },
-    
+
     {
       "url": "/stock/view",
       "name": "Stock",
@@ -30,7 +36,7 @@
       "icon": "menu-icon tf-icons bx bx-layout",
       "slug": "customer",
       "submenu": [
-        
+
         {
           "url": "/customer/view",
           "name": "Customer",
@@ -42,7 +48,7 @@
           "name": "Customer Transaction",
           "icon": "menu-icon tf-icons bx bx-home-circle",
           "slug": "transaction-view"
-        }     
+        }
       ]
     },
     {
@@ -50,19 +56,19 @@
       "icon": "menu-icon tf-icons bx bx-layout",
       "slug": "supplier",
       "submenu": [
-        
+
         {
           "url": "/supplier/view",
           "name": "Supplier",
           "icon": "menu-icon tf-icons bx bx-home-circle",
           "slug": "supplier-view"
-        },       
+        },
         {
           "url": "/product/view",
           "name": "Product",
           "icon": "menu-icon tf-icons bx bx-home-circle",
           "slug": "product-view"
-        }    
+        }
       ]
     },
     {

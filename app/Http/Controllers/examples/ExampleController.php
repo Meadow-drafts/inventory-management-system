@@ -12,17 +12,36 @@ class ExampleController extends Controller
   public function index()
   {
 
-    $trials = Example :: all();
-    return view('content.trial.trial-basic',['allTrials' => $trials]);
+    $examples = Example :: all();
+    return view('content.examples.example',['Examples' => $examples]);
 
   }
 
   public function store(Request $request){
-    Trial :: create([
+    Example :: create([
       'name' => $request-> get('name'),
-      'price' => $request -> get('price'),
+      'age' => $request -> get('age'),
 
     ]);
-    return redirect('/trial/basic');
+    return redirect('/example');
   }
+
+  public function edit($id)
+  {
+    $example = Example::find($id);
+    return response()->json($example);
+  }
+
+  public function destroy($id)
+  {
+    Example::find($id)->delete();
+
+    return response()->json(['success'=>'Record deleted successfully.']);
+  }
+
+  public function show($id)
+  {
+    //
+  }
+
 }
